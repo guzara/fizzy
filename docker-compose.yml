@@ -1,0 +1,21 @@
+services:
+  web:
+    image: ghcr.io/basecamp/fizzy:main
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    environment:
+      - SECRET_KEY_BASE=abcdefabcdef
+      - DISABLE_SSL=true
+      - BASE_URL=http://localhost
+      - MAILER_FROM_ADDRESS=contato@mobitechne.com.br
+      - SMTP_ADDRESS=smtp.hostinger.com
+      - SMTP_USERNAME=contato@mobitechne.com.br
+      - SMTP_PASSWORD=M@2009zara
+      - VAPID_PRIVATE_KEY=TPMQHPhb6QrrbiuzCs0cGNEy-y17-5mUfwWQQ9l1LtA=
+      - VAPID_PUBLIC_KEY=BA6dXqiDM7TaP3eKBF7cokD9N2UtRPpip3W_vfQV_Wf6NdjutkClDc2gaO6VYSEAZPbwKqD-X-fe767yn9SRipM=
+    volumes:
+      - fizzy:/rails/storage
+
+volumes:
+  fizzy:
